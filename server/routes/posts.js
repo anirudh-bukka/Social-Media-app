@@ -4,11 +4,11 @@ import { verifyToken } from "../middleware/auth.js";
 
 const router = express.Router();
 
-// READ --> Grabs the user feed when we are on the homepage.
+/* READ */
 router.get("/", verifyToken, getFeedPosts);
-router.get("/:userId/posts". verifyToken, getUserPosts);
+router.get("/:userId/posts", verifyToken, getUserPosts);
 
-// UPDATE
-router.patch(":/id/like", verifyToken, likePost);
+/* UPDATE */
+router.patch("/:id/like", verifyToken, likePost);
 
 export default router;
