@@ -1,8 +1,9 @@
 import { BrowserRouter, Navigate, Routes, Route } from "react-router-dom";
-import HomePage from "scenes/homePage";
+import HomePage from "./scenes/homePage/index.jsx";
 import LoginPage from "scenes/loginPage";
 import ProfilePage from "scenes/profilePage";
-// import Navbar from "scenes/navbar";
+import Navbar from "scenes/navbar";
+import { themeSettings } from "./theme";
 
 function App() {
 
