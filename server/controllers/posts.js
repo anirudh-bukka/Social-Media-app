@@ -22,7 +22,7 @@ export const createPost = async (req, res) => {
         const post = await Post.find(); // after saving the post, we make sure to grab ALL THE POSTS, then we can return 
         res.status(201).json(post);
     } catch (error) {
-        res.status(409).json({ msg: error })
+        res.status(400).json({ msg: error })
     }
 }
 

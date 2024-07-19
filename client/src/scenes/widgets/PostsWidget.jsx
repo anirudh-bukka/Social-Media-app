@@ -1,9 +1,10 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { setPosts } from "state";
 import PostWidget from "./PostWidget";
 
 const PostsWidget = ({ userId, isProfile = false }) => {
+  const [post, setPost] = useState();
   const dispatch = useDispatch();
   const posts = useSelector((state) => state.posts);
   const token = useSelector((state) => state.token);
@@ -26,7 +27,9 @@ const PostsWidget = ({ userId, isProfile = false }) => {
       }
     );
     const data = await response.json();
+    console.log("Check for posts error:", posts)
     dispatch(setPosts({ posts: data }));
+    // setPost(data);
   };
 
   useEffect(() => {
@@ -39,7 +42,8 @@ const PostsWidget = ({ userId, isProfile = false }) => {
 
   return (
     <>
-      {posts.map(
+    {/* if(this.item === undefined) {return} */}
+      {/* {posts.length > 0 && posts?.map(
         ({
           _id,
           userId,
@@ -65,7 +69,7 @@ const PostsWidget = ({ userId, isProfile = false }) => {
             comments={comments}
           />
         )
-      )}
+      )} */}
     </>
   );
 };
